@@ -195,6 +195,14 @@ class BaseModel(ABC):
                 # patch InstanceNorm checkpoints prior to 0.4
                 for key in list(state_dict.keys()):  # need to copy keys here because we mutate in loop
                     self.__patch_instance_norm_state_dict(state_dict, net, key.split('.'))
+
+                #============================
+                # from collections import OrderedDict
+                # new_state_dict = OrderedDict()
+                # for k, v in state_dict.items():
+                #     name = k[7:]  # remove `module.`
+                #     new_state_dict[name] = v
+                #============================
                 net.load_state_dict(state_dict)
 
     def print_networks(self, verbose):
