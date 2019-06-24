@@ -4,6 +4,7 @@ slurms/
 datasets/
 checkpoints/
 results/
+results_before/
 build/
 dist/
 *.png
